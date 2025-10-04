@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import userRouter from'./routes/user.route.js';
 dotenv.config();
 
 mongoose
@@ -24,7 +25,10 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
+app.use('/api/user',userRouter);
+
 // Start server
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
+
